@@ -1,0 +1,319 @@
+@import "bebas";
+@import "monosocial";
+@import "reset";
+
+$color-red: #ea0611;
+$color-black: #28282a;
+
+@keyframes fadeing {
+  to { opacity: 0; }
+}
+
+@keyframes border-fadeing {
+  to { box-shadow: 0 0 0px 10px rgba($color-red,0); }
+}
+
+body{
+  font: 16px "BebasWebFont", "Helvetica Neue", Helvetica, "Lucida Grande", Arial, sans-serif;
+  line-height: 1.5;
+  margin-top: 20px;
+  font-weight: 400;
+  min-width: 1020px;
+}
+
+a{
+  color: $color-black;
+  text-decoration: none;
+  &:hover{
+    background-color: $color-red;
+    color:white;
+  }
+}
+
+.share_fb{
+  display: inline-block;
+  background-color: #3b5998;
+  padding: .4em 1em;
+  border-radius: .4em;
+  color: white;
+  font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+  font-size: .7em;
+  line-height: 1;
+  &:hover{
+    background-color: #2d446d;
+  }
+  &:active{
+    background-color: #202a3c;
+  }
+  .symbol{
+    font-size: 3em;
+    line-height: 0;
+    margin: .3em 0 .4em;
+    display: inline-block;
+  }
+  .text{
+    vertical-align: middle;
+    margin: -.9em 0 0 0;
+    display: inline-block;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.loading {
+  background-color: $color-red;
+  color: white;
+  position: absolute;
+  letter-spacing: 2px;
+  z-index: 10;
+  padding: .2em .5em;
+  font-size: 1.5em;
+  animation: fadeing 2s infinite alternate;
+}
+
+#header {
+  padding: 30px;
+  #logo{
+    color: $color-red;
+    *{
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+    }
+    h1{
+      font-size: 10em;
+      font-weight: bold;
+      a{
+        color: $color-red;
+        .is{
+          color: white;
+          background-color: $color-red;
+        }
+        &:hover{
+          color: white;
+          background-color: $color-red;
+        }
+      }
+
+    }
+    p{
+      font-weight: bold;
+      font-size: 2em;
+    }
+  }
+  #vice{
+    float: right;
+    display: inline-block;
+  }
+  #menu{
+    float: right;
+    font-size: 1.9em;
+    text-align: right;
+    line-height: 1.9;
+    display: inline-block;
+    display: none;
+    a{
+      margin: 2px 0;
+      padding-right: 30px;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      text-decoration: none;
+      .selected,
+      &:hover{
+        background: $color-red;
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+}
+
+#hero{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 40px 0;
+  .content{
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 70px 30px;
+    display: inline-block;
+    z-index: 100;
+    h1{
+      border-top: solid 5px white;
+      padding-top: 20px;
+      line-height: 1;
+      font-size: 5em;
+      font-weight: 200;
+      text-align: left;
+      strong{
+        font-weight: 400;
+      }
+    }
+  }
+  video,
+  .cover{
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    position: absolute;
+    left: 0; right: 0;
+  }
+  video{
+    top: -50%;
+    z-index: 0;
+    background-color: transparent;
+  }
+  .cover{
+    height: 100%;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: rgba($color-red, .75);
+    z-index: 10;
+  }
+}
+
+#profileChanger{
+  padding: 30px;
+  .tmp-pics{
+    display: inline-block;
+  }
+  .setpic,
+  .download{
+    display: inline-block;
+    margin: 0 0 0 30px;
+    vertical-align: top;
+    font-size: 1.5em;
+    h2{
+      border-bottom: 4px solid $color-black;
+    }
+    ul{
+      margin-left: 1em;
+      margin-top: 15px;
+      li{
+        font-weight: 200;
+        line-height: 1.5;
+        list-style-type: decimal;
+        list-style-position: outside;
+      }
+    }
+    .btn{
+      display: inline-block;
+      padding: 1em 1.5em .9em;
+      line-height: 1;
+      letter-spacing: 2px;
+      background: $color-black;
+      border: 0;
+      font-size: 2em;
+      color: white;
+      &:hover{
+        background-color: $color-red;
+      }
+    }
+  }
+  .picture{
+    min-width: 200px;
+    min-height: 200px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: rgba(black, .1);
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    .fallback_img{
+      background: blue;
+      position: absolute;
+      left: 0;
+      top: 0;
+      animation: border-fadeing 2s infinite;
+      box-shadow: 0 0 0 0 $color-red;
+    }
+    canvas{
+      z-index: 100;
+      width: 200px;
+      height: 200px;
+      background-color: transparent;
+    }
+    .pic{
+      background-size: cover;
+      width: 100%;
+      position: absolute;
+      height: 100%;
+      top: 0; left: 0; right: 0; bottom: 0;
+      &.unknown{
+        opacity: .5;
+        background-image: url(http://i.imgur.com/BsxSrpW.gif);
+      }
+    }
+  }
+  .arrow{
+    display: inline-block;
+    margin: 0 15px;
+    width: 60px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .2;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cG9seWdvbiBwb2ludHM9IjE2MCwxMjguNCAxOTIuMyw5NiAzNTIsMjU2IDM1MiwyNTYgMzUyLDI1NiAxOTIuMyw0MTYgMTYwLDM4My42IDI4Ny4zLDI1NiAiLz48L3N2Zz4=);
+    vertical-align: middle;
+  }
+  .social-buttons
+  {
+    margin: 30px 0;
+    .fb,
+    .tw{
+      padding: .25em .4em;
+      font-size: 5em;
+      color: white;
+      margin-right: 30px;
+      &:hover{
+        opacity: .8;
+      }
+    }
+    .fb{
+      background-color: #3b5998;
+    }
+    .tw{
+      background-color: #01afec;
+    }
+  }
+}
+
+#legal {
+  max-width: 550px;
+  padding: 0 30px;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 1em;
+  .p,
+  h2{
+    font-size: 1em;
+  }
+  h2{
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 2.5em;
+    margin-bottom: .5em;
+  }
+}
+
+#footer{
+  padding: 0 30px;
+  font-weight: 200;
+  margin: 30px 0;
+  letter-spacing: 1px;
+  list-style-type: none;
+  li{
+    margin-right: 1em;
+    display: inline-block;
+    line-height: 1;
+    a:hover{
+      background: $color-red;
+      color: white;
+    }
+  }
+}

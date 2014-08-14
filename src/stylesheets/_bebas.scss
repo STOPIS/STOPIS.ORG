@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'BebasWebFont';
+    src: url('/public/fonts/BebasNeue-webfont.eot');
+    src: url('/public/fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/public/fonts/BebasNeue-webfont.woff') format('woff'),
+         url('/public/fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('/public/fonts/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BebasWebFont';
+    src: url('/public/fonts/BebasNeueBook.eot');
+    src: url('/public/fonts/BebasNeueBook.eot?#iefix') format('embedded-opentype'),
+         url('/public/fonts/BebasNeueBook.woff') format('woff'),
+         url('/public/fonts/BebasNeueBook.otf') format('opentype'),
+         url('/public/fonts/BebasNeueBook.svg#bebasneuebook') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}

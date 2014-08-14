@@ -1,0 +1,37 @@
+extends layout
+
+block content
+
+  section#hero
+    .content
+      h1 CHANGE YOUR PROFILE PICTURE. <br><strong>STOP</strong> THE GENOCIDE. <strong>SAVE LIVES</strong>.
+    .cover
+    video(src="https://v.cdn.vine.co/r/videos/82303BB81A1111215307575664640_21e08e40bb8.2.1.9784435929801967690.mp4?versionId=O6rXMCqO5WtMznRYvY43AxZq5dV8UTeQ" autoplay="autoplay" loop="loop" muted="muted")
+
+  section#profileChanger
+    .loading.hidden LOADING...
+    .pictures
+      .tmp-pics
+        .picture.from
+          .pic.unknown
+        .arrow
+      .picture.to
+        .fallback_img.hidden
+        canvas#profile_canvas UNSUPPORTED BROWSER. PLEASE USE MODERN BROWSER.
+      .setpic.hidden
+        a.btn(href="#") SET AS PROFILE PICTURE
+      .download.hidden
+        h2 SET AS PROFILE PICTURE
+        ul
+          li Right click
+          li Save image somewhere
+          li Go to facebook or twitter and upload it
+        p Thank you.
+        p
+          |<br><a href="https://twitter.com/intent/tweet?button_hashtag=STOPIS&text=Stop%20the%20geneocide.%20Change%20your%20avatar%20now!%20%23IS%20%23ISIS%20%23ISIL%20%20%40STOPISORG%20%40WhiteHouse%20%40UN" class="twitter-hashtag-button" data-size="large" data-related="STOPISORG" data-url="http://stopis.org">Tweet #STOPIS</a>
+          |<br><a class="share_fb" href="#"><span class='symbol'>facebook</span> <span class='text'>Share #STOPIS</span></a>
+    .social-buttons
+      a.fb(href="#")
+        span.symbol facebook
+      a.tw(href="#")
+        span.symbol twitterbird
